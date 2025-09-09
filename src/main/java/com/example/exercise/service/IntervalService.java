@@ -7,17 +7,34 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-
+/**
+ * Service class for handling interval logic
+ *
+ * Could argue some methods could be private, I made them public
+ * so it would be easier to run tests.
+ */
 @Service
 public class IntervalService {
 
+    /**
+     * Merges the include intervals and subtracts the exclude intervals
+     *
+     * @param include
+     * @param exclude
+     * @return list of non overlapping intervals
+     */
     public List<Interval> mergeAndExcludeIntervals(List<Interval> include, List<Interval> exclude) {
         List<Interval> mergedIntervals = mergeIntervals(include);
         return subtractExcludes(mergedIntervals, exclude);
     }
 
 
-
+    /**
+     * Merges include intervals
+     *
+     * @param intervals
+     * @return a list of merged include intervals
+     */
     public List<Interval> mergeIntervals(List <Interval> intervals) {
         if (intervals.isEmpty()) {
             return new ArrayList<>();
@@ -41,7 +58,13 @@ public class IntervalService {
         return mergedIntervals;
     }
 
-
+    /**
+     * Subtracts a list of exclude intervals from a list of include intervals
+     *
+     * @param includes
+     * @param excludes
+     * @return a list of intervals
+     */
     public List<Interval> subtractExcludes(List<Interval> includes, List<Interval> excludes) {
         if (includes.isEmpty()) {
             return includes;
@@ -58,7 +81,14 @@ public class IntervalService {
         return result;
     }
 
-
+    /**
+     * Helper function
+     * Subtracts a single exclude interval from a single include interval
+     *
+     * @param include
+     * @param exclude
+     * @return a list of intervals after subtracting
+     */
     public List<Interval> subtract(Interval include, Interval exclude) {
         List<Interval> result = new ArrayList <>();
 

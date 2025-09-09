@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+
+/**
+ * REST controller for interval operations.
+ * Provides endpoints to merge and exclude intervals.
+ */
 @RestController
 @RequestMapping("/api/intervals")
 public class IntervalController {
