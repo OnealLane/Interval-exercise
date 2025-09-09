@@ -1,8 +1,10 @@
 package com.example.exercise;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode
 public class Interval {
 
     private int start;
